@@ -1,0 +1,27 @@
+<link rel = "stylesheet" href = "style.css">
+<body>
+<center>
+<header>will u go out with me</header>
+<div class = "imgContainer">
+<img class = "image" src = "https://files.catbox.moe/tetnn3.png">
+</div>
+<br>
+<br>
+</center>
+<button id = "yes" onclick = "cool()">Yes</button>
+
+<button id = "no" onmouseover = "move()">No</button>
+</body>
+<script>
+    function cool(){ 
+        window.location.href = "yes.html"
+    }
+    async function move(){     
+        await new Promise(r => setTimeout(r, 100));   
+        var x = Math.random()*(window.innerWidth-200)
+        var y = Math.random()*(window.innerHeight-100)
+        console.log(x+","+y)
+        document.getElementById("no").style.left = `${x}px`
+        document.getElementById("no").style.top = `${y}px`
+    }
+</script>

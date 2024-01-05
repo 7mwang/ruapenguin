@@ -1,0 +1,26 @@
+button {
+    padding: 15px 30px;
+    background-color: #FFC0CB;
+    border-radius: 8px;
+    border: #FFC0CB;
+    position: absolute;
+    left: 45.5%
+}
+#no {
+    transition: 0.5s;
+    margin-right: 100px
+}
+#yes {
+    margin-left: 100px
+}
+#yes:hover {
+    background-color: #fa9dad;
+}
+header {
+    color: #FFC0CB;
+    padding: 20px;
+}
+
+body {
+    background-color: black;
+}

@@ -9,13 +9,6 @@ SHELL = /bin/bash
 # Phony Targets, makefile housekeeping for below definitions
 .PHONY: default server convert clean stop
 
-# List all .ipynb files in the _notebooks directory
-NOTEBOOK_FILES := $(wildcard _notebooks/*.ipynb)
-
-# Specify the target directory for the converted Markdown files
-DESTINATION_DIRECTORY = _posts
-MARKDOWN_FILES := $(patsubst _notebooks/%.ipynb,$(DESTINATION_DIRECTORY)/%_IPYNB_2_.md,$(NOTEBOOK_FILES))
-
 # Call server, then verify and start logging
 # ...
 
@@ -63,19 +56,6 @@ server: stop convert
 
 
 # Convert .ipynb files to Markdown with front matter
-convert: $(MARKDOWN_FILES)
-	
-# Convert .md file, if .ipynb file is newer
-$(DESTINATION_DIRECTORY)/%_IPYNB_2_.md: _notebooks/%.ipynb
-	@echo "Converting source $< to destination $@"
-	@python -c 'import sys; from scripts.convert_notebooks import convert_single_notebook; convert_single_notebook(sys.argv[1])' "$<"
-
-# Clean up project derived files, to avoid run issues stop is dependency
-clean: stop
-	@echo "Cleaning converted IPYNB files..."
-	@@rm -f _posts/*_IPYNB_2_.md
-	@rm -rf _site
-
 
 # Stop the server and kill processes
 stop:
