@@ -10,18 +10,34 @@
 </center>
 <button id = "yes" onclick = "cool()">Yes</button>
 
-<button id = "no" onmouseover = "move()">No</button>
+<button id = "no" onmouseover = "move()" onclick = "no()">No</button>
 </body>
 <script>
+    var count = 0
+    var access = false
     function cool(){ 
         window.location.href = "yes.html"
     }
-    async function move(){     
-        await new Promise(r => setTimeout(r, 100));   
-        var x = Math.random()*(window.innerWidth-200)
-        var y = Math.random()*(window.innerHeight-100)
-        console.log(x+","+y)
-        document.getElementById("no").style.left = `${x}px`
-        document.getElementById("no").style.top = `${y}px`
+    function no(){
+        if (access) {
+        window.location.href = "no.html"
+        }
+        else {
+            exit()
+        }
+    }
+    async function move(){
+        count++
+        if (count >= 5){
+            access = true
+        }
+        else {  
+            await new Promise(r => setTimeout(r, 100)); 
+            var x = Math.random()*(window.innerWidth-200)
+            var y = Math.random()*(window.innerHeight-100)
+            console.log(x+","+y)
+            document.getElementById("no").style.left = `${x}px`
+            document.getElementById("no").style.top = `${y}px`
+        }
     }
 </script>

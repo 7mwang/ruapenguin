@@ -13,7 +13,7 @@ button {
 #yes {
     margin-left: 100px
 }
-#yes:hover {
+button:hover {
     background-color: #fa9dad;
 }
 header {
