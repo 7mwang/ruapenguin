@@ -1,26 +1,25 @@
 button {
     padding: 15px 30px;
-    background-color: #FFC0CB;
+    background-color: #89cff0;
     border-radius: 8px;
-    border: #FFC0CB;
+    border: #89cff0;
     position: absolute;
     left: 45.5%
 }
 #no {
-    transition: 0.5s;
     margin-right: 100px
 }
 #yes {
     margin-left: 100px
 }
 button:hover {
-    background-color: #fa9dad;
+    background-color: #89cff0;
 }
 header {
-    color: #FFC0CB;
+    color: #89cff0;
     padding: 20px;
 }
 
 body {
-    background-color: black;
+    background-color: white;
 }

@@ -1,43 +1,39 @@
 <link rel = "stylesheet" href = "style.css">
 <body>
 <center>
-<header>will u go out with me</header>
+<header>r u a penguin</header>
 <div class = "imgContainer">
-<img class = "image" src = "https://files.catbox.moe/tetnn3.png">
+<img class = "image" src = "https://files.catbox.moe/jdmw5u.jpeg">
 </div>
 <br>
 <br>
 </center>
 <button id = "yes" onclick = "cool()">Yes</button>
 
-<button id = "no" onmouseover = "move()" onclick = "no()">No</button>
+<button id = "no" onmouseover = "no()" >No</button>
 </body>
 <script>
     var count = 0
-    var access = false
     function cool(){ 
         window.location.href = "yes.html"
     }
-    function no(){
-        if (access) {
-        window.location.href = "no.html"
-        }
-        else {
-            exit()
-        }
-    }
-    async function move(){
+    async function no() {
         count++
         if (count >= 5){
-            access = true
+            window.location.href="no.html"
         }
         else {  
-            await new Promise(r => setTimeout(r, 100)); 
-            var x = Math.random()*(window.innerWidth-200)
-            var y = Math.random()*(window.innerHeight-100)
-            console.log(x+","+y)
-            document.getElementById("no").style.left = `${x}px`
-            document.getElementById("no").style.top = `${y}px`
+            move()
         }
     }
+
+async function move() {
+    await new Promise(r => setTimeout(r, 50)); 
+    var x = Math.random()*(window.innerWidth-400)
+    var y = Math.random()*(window.innerHeight-200)
+    console.log(x+","+y)
+    await new Promise(r => setTimeout(r, 50)); 
+    document.getElementById("no").style.left = `${x}px`
+    document.getElementById("no").style.top = `${y}px`
+}
 </script>
